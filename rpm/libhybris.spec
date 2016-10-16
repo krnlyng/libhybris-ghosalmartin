@@ -250,11 +250,11 @@ autoreconf -v -f -i
   --enable-experimental \
 %ifarch %{arm}
   --enable-arch=arm \
-  --with-default-hybris-ld-library-path=/usr/libexec/droid-hybris/system/lib:/vendor/lib:/system/lib
+  --with-default-hybris-ld-library-path=/usr/libexec/droid-hybris/system/lib:/vendor/lib:/system/lib \
 %endif
 %ifarch %{ix86}
   --enable-arch=x86 \
-  --with-default-hybris-ld-library-path=/usr/libexec/droid-hybris/system/lib:/vendor/lib:/system/lib
+  --with-default-hybris-ld-library-path=/usr/libexec/droid-hybris/system/lib:/vendor/lib:/system/lib \
 %endif
 %ifarch aarch64
   --enable-arch=arm64 \

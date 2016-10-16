@@ -96,6 +96,9 @@
 
 #define SOINFO_VERSION 2
 
+#define R_AARCH64_TLS_DTPREL   1029	/* Module-relative offset, 64 bit.  */
+#define R_AARCH64_TLS_TPREL    1030	/* TP-relative offset, 64 bit.  */
+
 #if defined(__work_around_b_19059885__)
 #define SOINFO_NAME_LEN 128
 #endif
