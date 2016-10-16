@@ -236,6 +236,12 @@ Requires: %{name}-libvibrator = %{version}-%{release}
 %description tests
 %{summary}.
 
+%package ubuntu-additions
+Summary: Additions added by ls
+
+%description ubuntu-additions
+%{summary}.
+
 %prep
 %setup -q -n %{name}-%{version}/%{name}
 
@@ -433,3 +439,42 @@ rm %{buildroot}/%{_libdir}/*.la %{buildroot}/%{_libdir}/libhybris/*.la
 %files tests
 %defattr(-,root,root,-)
 %{_bindir}/test_*
+
+%files ubuntu-additions
+%{_includedir}/hybris/common/hooks.h
+%{_includedir}/hybris/media/media_buffer_layer.h
+%{_includedir}/hybris/media/media_codec_layer.h
+%{_includedir}/hybris/media/media_codec_list.h
+%{_includedir}/hybris/media/media_codec_source_layer.h
+%{_includedir}/hybris/media/media_compatibility_layer.h
+%{_includedir}/hybris/media/media_format_layer.h
+%{_includedir}/hybris/media/media_message_layer.h
+%{_includedir}/hybris/media/media_meta_data_layer.h
+%{_includedir}/hybris/media/media_recorder_layer.h
+%{_includedir}/hybris/media/recorder_compatibility_layer.h
+%{_includedir}/hybris/media/surface_texture_client_hybris.h
+%{_libdir}/libcamera.so
+%{_libdir}/libcamera.so.1
+%{_libdir}/libcamera.so.1.0.0
+%{_libdir}/libhybris/linker/mm.la
+%{_libdir}/libhybris/linker/mm.so
+%{_libdir}/libis.so
+%{_libdir}/libis.so.1
+%{_libdir}/libis.so.1.0.0
+%{_libdir}/libmedia.so
+%{_libdir}/libmedia.so.1
+%{_libdir}/libmedia.so.1.0.0
+%{_libdir}/libsf.so
+%{_libdir}/libsf.so.1
+%{_libdir}/libsf.so.1.0.0
+%{_libdir}/libui.so
+%{_libdir}/libui.so.1
+%{_libdir}/libui.so.1.0.0
+%{_libdir}/libwifi.so
+%{_libdir}/libwifi.so.1
+%{_libdir}/libwifi.so.1.0.0
+%{_libdir}/pkgconfig/libcamera.pc
+%{_libdir}/pkgconfig/libis.pc
+%{_libdir}/pkgconfig/libmedia.pc
+%{_libdir}/pkgconfig/libsf.pc
+%{_libdir}/pkgconfig/libwifi.pc
