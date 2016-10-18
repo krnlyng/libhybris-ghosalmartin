@@ -17,12 +17,24 @@ libhybris_common_la_SOURCES = \
 	strlcpy.c \
 	strlcat.c \
 	logging.c \
-	sysconf.c
+	sysconf.c \
+	wrappers.c \
+	wrapper_code_generic_arm.c
+
 libhybris_common_la_CPPFLAGS = \
 	-I$(top_srcdir)/include \
 	$(ANDROID_HEADERS_CFLAGS) \
 	-I$(top_srcdir)/common \
-	-DLINKER_PLUGIN_DIR=\"$(libdir)/libhybris/linker\"
+	-DLINKER_PLUGIN_DIR=\"$(libdir)/libhybris/linker\" \
+	-marm
+
+libhybris_common_la_CFLAGS = \
+	-I$(top_srcdir)/include \
+	$(ANDROID_HEADERS_CFLAGS) \
+	-I$(top_srcdir)/common \
+	-DLINKER_PLUGIN_DIR=\"$(libdir)/libhybris/linker\" \
+	-marm
+
 if WANT_TRACE
 libhybris_common_la_CPPFLAGS += -DDEBUG
 endif

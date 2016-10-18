@@ -247,14 +247,23 @@ Summary: Additions added by ls
 
 %build
 cd hybris
+
+CFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -fmessage-length=0 -march=armv7-a -mfloat-abi=hard -mfpu=neon -marm -mthumb-interwork -Wno-psabi'
+export CFLAGS
+CXXFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -fmessage-length=0 -march=armv7-a -mfloat-abi=hard -mfpu=neon -marm -mthumb-interwork -Wno-psabi'
+export CXXFLAGS
+FFLAGS='-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions -fstack-protector --param=ssp-buffer-size=4 -Wformat -Wformat-security -fmessage-length=0 -march=armv7-a -mfloat-abi=hard -mfpu=neon -marm -mthumb-interwork -Wno-psabi -I/usr/lib/gfortran/modules'
+
+
 autoreconf -v -f -i
 %configure \
   --enable-wayland \
   %{!?qa_stage_devel:--enable-debug} \
-  %{!?qa_stage_devel:--enable-trace} \
+   %{!?qa_stage_devel:--enable-trace} \
   --with-android-headers=/usr/lib/droid-devel/droid-headers \
   --enable-experimental \
 %ifarch %{arm}
+  --with-mode=arm \
   --enable-arch=arm \
   --with-default-hybris-ld-library-path=/usr/libexec/droid-hybris/system/lib:/vendor/lib:/system/lib \
 %endif
