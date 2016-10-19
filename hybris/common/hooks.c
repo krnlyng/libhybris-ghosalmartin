@@ -285,7 +285,7 @@ static void *_hybris_hook_memcpy(void *dst, const void *src, size_t len)
     TRACE_HOOK("dst %p src %p len %zu", dst, src, len);
 
     if (src == NULL || dst == NULL)
-        return NULL;
+        return dst;
 
     return memcpy(dst, src, len);
 }
